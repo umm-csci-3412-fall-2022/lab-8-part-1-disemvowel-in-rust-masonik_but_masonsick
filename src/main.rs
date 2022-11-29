@@ -15,8 +15,11 @@ fn main() {
     // be the file we want to write the disemvoweled text to.
     let args: Vec<String> = env::args().collect();
 
-    //TODO: Panic if not enough arguments are provided
+    //Panic if not enough arguments are provided
     //Panic should output the string "Not enough arguments"
+    if args.len() < 2{
+        panic!("Not enough arguments");
+    } //I don't know if there should be an else statement, lets try without one for now
 
     //TODO:
     //  * Pass an argument to read_file to read the original text
@@ -24,7 +27,7 @@ fn main() {
     //  * Write the disemvoweled text using write_file
 
     // Replace String::from("dummy text") with what you get from read_file
-    let s = String::from("dummy text");
+    let s = String::from(read_file(args.get(0));
 
     let s_disemvowel = disemvowel(&s);
 
@@ -40,9 +43,20 @@ fn write_file(path: &Path, s: &str) {
     fs::write(path, s).expect("Unable to write file");
 }
 
-//TODO: Return the input string without vowels.
+//Return the input string without vowels.
 fn disemvowel(s: &str) -> String {
     String::from(s)
+    let vowels = "aeiouAEIOU";
+    let mut disemvowel_string = String::from("");
+
+    for i in str.chars() {
+        if vowels.contains(i) {
+            continue;
+        } else {
+            disemvowel_string.push(i);
+        }
+    }
+    return disemvowel_string;
 }
 
 // Everything from here down is Rust test code. You shouldn't need to
