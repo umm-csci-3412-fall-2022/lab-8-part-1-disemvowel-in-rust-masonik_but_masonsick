@@ -17,7 +17,7 @@ fn main() {
 
    //Panic if not enough arguments are provided
     //Panic should output the string "Not enough arguments"
-    if args.len() < 2{
+    if args.len() < 3{
         panic!("Not enough arguments");
     } //I don't know if there should be an else statement, lets try without one for now
     
@@ -40,8 +40,7 @@ fn main() {
 }
 
 fn read_file(path: &Path) -> String {
-    fs::read_to_string(path).expect("Could not read the file");
-    panic!("Could not read the file");
+    fs::read_to_string(path).expect("Could not read the file")
 }
 fn write_file(path: &Path, s: &str) {
     fs::write(path, s).expect("Unable to write file");
