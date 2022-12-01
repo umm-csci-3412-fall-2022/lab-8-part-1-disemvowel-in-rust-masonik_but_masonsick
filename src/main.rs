@@ -40,7 +40,8 @@ fn main() {
 }
 
 fn read_file(path: &Path) -> String {
-    fs::read_to_string(path).expect("Could not read the file")
+    fs::read_to_string(path).expect("Could not read the file");
+    panic!("Could not read the file");
 }
 fn write_file(path: &Path, s: &str) {
     fs::write(path, s).expect("Unable to write file");
